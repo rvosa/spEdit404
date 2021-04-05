@@ -83,3 +83,16 @@ The length of the event. Because this uses two bytes, this gives
 a theoretical range from `0x0000 / 0` to `0xffff / 65535`. Because
 the SP uses 384 ticks per bar and can store patterns up to 99 bars,
 the two byte value has enough headroom.
+
+# Pattern file footer
+
+PTN files contain a footer of two rows, like so:
+
+```
+0x00 0x8c 0x00 0x00 0x00 0x00 0x00 0x00 
+0x00 0x04 0x00 0x00 0x00 0x00 0x00 0x00 
+```
+
+The value `0x8c / 140` seems invariant (no, it's not the BPM). The
+other value, in this example `0x04 / 4` is variable, and specifies
+the length of the pattern.
